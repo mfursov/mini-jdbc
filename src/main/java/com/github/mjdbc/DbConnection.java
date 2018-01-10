@@ -42,6 +42,7 @@ public class DbConnection {
         if (sqlConnection == null) {
             try {
                 sqlConnection = db.dataSource.getConnection();
+                sqlConnection.setAutoCommit(false);
             } catch (SQLException e) {
                 throw new RuntimeException("Failed to get connection from DataSource!", e);
             }
